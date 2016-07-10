@@ -15,14 +15,15 @@ class ApiAuth extends Controller
       //si sale mal
       try{
           if (!$token = JWTAuth::attempt($credentials)) {
-            return response()->json(['error'=>'credenciales incorrectos']);
+            return response()->json(['error'=>'invalid_credential'], 500);
           }
       }catch(JWTException $ex){
         return response()->json(['error'=>'algo anda mal'], 500);
       }
       //sino
-      return response()->json(compact('token'));
-      echo "string";
+      $user = JWTAuth::toUser($token);//buscar el usuario relacionado con el token
+      return response()->json(compact('token','user'));
+
     }
     public function index()
 {

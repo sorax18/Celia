@@ -81,3 +81,60 @@ body {
     border-bottom: 0;
   }
 }
+
+.profile-image{
+    max-height:30px;
+    width:auto;
+    vertical-align:middle;
+}
+
+.navbar-login
+{
+    width: 305px;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.navbar-login-session
+{
+    padding: 10px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.icon-size
+{
+    font-size: 87px;
+}
+.icon-size img{
+    width: 100px;
+    height: auto;
+    margin-top: -30px;
+}
+
+
+
+.logo {
+  padding: 15px 15px;
+  font-size: 22px;
+  font-family: "Caviar Dreams";
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: left;
+}
+.fondo{
+  background-image: url(../images/index.png);
+  background-size: cover;
+  height: 400px;
+  width: 100%;
+  color: white;
+  text-align: center;
+  padding: 150px 0 0 0 ;
+  font-weight: bold;
+  line-height: 1;
+    font-size: 32px;
+
+}
+.fondo form{
+    padding: 0 90px 0 90px;
+}
