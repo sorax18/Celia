@@ -29,7 +29,9 @@ angular.module('frontApp')
             if (typeof newVal !== 'undefined') {
                 vm.user.email = sessionControl.get('correo');
             }
+
         });
+
 
         $scope.$watch(function(){
             return sessionControl.get('nombre1') + ' '+ sessionControl.get('apellido1');
@@ -37,6 +39,7 @@ angular.module('frontApp')
             if (typeof newVal !== 'undefined') {
                 vm.user.name = sessionControl.get('nombre1') + ' '+ sessionControl.get('apellido1');
             }
+
         });
     vm.logout = function () {
       authUser.logout();

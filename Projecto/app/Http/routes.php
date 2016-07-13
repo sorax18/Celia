@@ -17,5 +17,6 @@ Route::get('/', function () {
 
 Route::group(['middleware' =>'cors'], function(){
 Route::post('/auth_login', 'ApiAuth@UserAuth');
+Route::resource('/registro', 'usuarioController')
 
 });

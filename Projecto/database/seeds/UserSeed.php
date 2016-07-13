@@ -13,6 +13,7 @@ class UserSeed extends Seeder
     {
         $users = [
           [
+            'idUsuario'=>'12345',
             'nombre1'=> 'Alejandro',
             'apellido1'=>'Cerdas',
             'correo'=>'ale@gmai.com',

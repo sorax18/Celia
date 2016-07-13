@@ -40,7 +40,7 @@ angular.module('authService', [])
     var login = function (loginForm) {
            $auth.login(loginForm).then(
                function (response) {
-                   if(typeof response.data.user != 'undefined'){
+                   if(typeof response.data.user !== 'undefined'){
                      cache(response.data.user.correo, response.data.user.nombre1, response.data.user.apellido1, response.data.user.administrador);
                        $location.path('/');
                        toastr.success('Sesión iniciada con éxito', 'Mensaje');

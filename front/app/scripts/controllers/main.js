@@ -8,9 +8,26 @@
  * Controller of the frontApp
  */
 angular.module('frontApp')
-  .controller('MainCtrl', function () {
+  .controller('MainCtrl', function (authUser,sessionControl) {
     var vm = this;
-    vm.menuTemplate = {
-      url: 'views/menu.html'
+    if (authUser.isLoggedIn()) {
+      if (!sessionControl.get('administrador')) {
+
+        vm.menuTemplate = {
+          url: 'views/menulog.html'
+
+        };
+      }
+
+
+    }
+    else {
+      vm.menuTemplate = {
+        url: 'views/menu.html'
+      };
+    }
+    vm.footerTemplate = {
+      url:'views/footer.html'
     };
+
   });

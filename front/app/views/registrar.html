@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="col-sm-8 col-sm-offset-2">
+        <div class="well">
+            <h3>Registráte</h3>
+            <form>
+              <div class="form-group col-md-12 ">
+                <span class="label label-default">Número de identificación</span>
+                  <input type="number" class="form-control" placeholder="ID" >
+              </div>
+                <div class="form-group col-md-6 ">
+                  <span class="label label-default"> Primer Nombre</span>
+                    <input type="email" class="form-control" placeholder="Email" >
+                </div>
+
+                <div class="form-group col-md-6">
+                  <span class="label label-default">Segundo Nombre</span>
+                  <input type="text" class="form-control"  placeholder="">
+                  <span class="help-block">opcional</span>
+                </div>
+                <div class="form-group col-md-6">
+                  <span class="label label-default">Primer Apellido</span>
+                  <input type="text" class="form-control"  placeholder="">
+                </div>
+                <div class="form-group col-md-6">
+                  <span class="label label-default">Segundo Apellido</span>
+                  <input type="text" class="form-control"  placeholder="">
+                  <span class="help-block">opcional</span>
+                </div>
+                <div class="form-group col-md-12">
+                  <span class="label label-default">Teléfono</span>
+                    <input type="email" class="form-control" placeholder="Email" ng-model="login.loginForm.correo">
+                </div>
+                <div class="form-group col-md-12">
+                  <span class="label label-default">correo</span>
+                    <input type="email" class="form-control" placeholder="Email" ng-model="login.loginForm.correo">
+                </div>
+                <div class="form-group col-md-12">
+                    <span class="label label-default">Contraseña</span>
+                    <input type="password" class="form-control" placeholder="Password" ng-model="login.loginForm.password">
+                </div>
+                <div class="form-group col-md-12">
+                    <span class="label label-default">Confirmar Contraseña</span>
+                    <input type="password" class="form-control" placeholder="Password" ng-model="login.loginForm.password">
+                </div>
+
+                <div class="form-group col-md-12">
+                  <span class="label label-default">Direccion</span>
+                  <textarea name="name" rows="8" cols="40" class="form-control"></textarea>
+                </div>
+
+                <button class="btn btn-success" ng-click="login.login()">Registrarse</button><br>
+
+            </form>
+        </div>
+    </div>
+</div>
