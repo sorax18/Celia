@@ -13,11 +13,12 @@ class UserSeed extends Seeder
     {
         $users = [
           [
-            'idUsuario'=>'12345',
+            'idUsuario'=>'123123',
             'nombre1'=> 'Alejandro',
             'apellido1'=>'Cerdas',
-            'correo'=>'ale@gmai.com',
-            'password'=> Hash::make('123')
+            'correo'=>'alex@gmail.com',
+            'password'=> Hash::make('123'),
+            'administrador' => '1'
           ]
         ];
         foreach ($users as $user) {

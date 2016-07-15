@@ -42,8 +42,14 @@ angular.module('authService', [])
                function (response) {
                    if(typeof response.data.user !== 'undefined'){
                      cache(response.data.user.correo, response.data.user.nombre1, response.data.user.apellido1, response.data.user.administrador);
-                       $location.path('/');
-                       toastr.success('Sesión iniciada con éxito', 'Mensaje');
+                      if (response.data.user.administrador === 1) {
+                        $location.path('/usuario');
+                        toastr.success('Sesión iniciada con éxito', 'Mensaje');
+                      }
+                      else {
+                        $location.path('/');
+                        toastr.success('Sesión iniciada con éxito', 'Mensaje');
+                      }
                    }
                    else {
 

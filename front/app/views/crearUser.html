@@ -1,7 +1,7 @@
 <div class="container">
     <div class="col-sm-8 col-sm-offset-2">
         <div class="well">
-            <h3>Registráte</h3>
+            <h3>{{titulo}} </h3>
             <form ng-submit="saveUser()">
               <div class="form-group col-md-12 ">
                 <span class="label label-default">Número de identificación</span>
@@ -31,20 +31,33 @@
                 </div>
                 <div class="form-group col-md-12">
                   <span class="label label-default">Teléfono</span>
-                    <input type="number" class="form-control" placeholder="Teléfono" ng-model="usuario.telefono" required >
+                    <input type="text" pattern="[0-9]+" class="form-control" placeholder="Teléfono" ng-model="usuario.telefono" required title="Digite solo números" >
                 </div>
                 <div class="form-group col-md-12">
                   <span class="label label-default">correo</span>
                     <input type="email" class="form-control" placeholder="Correo" ng-model="usuario.correo" required >
                 </div>
-                <div class="form-group col-md-12">
-                    <span class="label label-default">Contraseña</span>
-                    <input type="password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="La contraseña debe tener al menos 6 letra con una mayuscula, minuscula y numero"  placeholder="Contraseña" ng-model="usuario.password" required >
+                <div ng-if="actualiza">
+                  <div class="form-group col-md-12">
+                      <span class="label label-default">Contraseña</span>
+                      <input type="password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="La contraseña debe tener al menos 6 letra con una mayuscula, minuscula y numero"  placeholder="Contraseña" ng-model="usuario.password" >
+                  </div>
+                  <div class="form-group col-md-12">
+                      <span class="label label-default">Confirmar Contraseña</span>
+                      <input type="password" class="form-control" placeholder="confirmar Contraseña"  ng-model="usuario.confirmPass"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="La contraseña debe tener al menos 6 letra con una mayuscula, minuscula y numero" >
+                  </div>
                 </div>
-                <div class="form-group col-md-12">
-                    <span class="label label-default">Confirmar Contraseña</span>
-                    <input type="password" class="form-control" placeholder="confirmar Contraseña" compare-to="usuario.password" ng-model="usuario.confirmPass" require pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="La contraseña debe tener al menos 6 letra con una mayuscula, minuscula y numero" >
+                <div ng-if="actualiza == false">
+                  <div class="form-group col-md-12">
+                      <span class="label label-default">Contraseña</span>
+                      <input type="password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" required title="La contraseña debe tener al menos 6 letra con una mayuscula, minuscula y numero"  placeholder="Contraseña" ng-model="usuario.password" >
+                  </div>
+                  <div class="form-group col-md-12">
+                      <span class="label label-default">Confirmar Contraseña</span>
+                      <input type="password" class="form-control" placeholder="confirmar Contraseña" required   ng-model="usuario.confirmPass"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="La contraseña debe tener al menos 6 letra con una mayuscula, minuscula y numero" >
+                  </div>
                 </div>
+
                 <div class="form-group col-md-12">
                     <span class="label label-default">ZIP</span>
                     <input type="text" class="form-control" placeholder="ZIP" ng-model="usuario.zip" required >
@@ -53,7 +66,12 @@
                   <span class="label label-default">Direccion</span>
                   <textarea name="name" rows="8" cols="40" class="form-control" ng-model="usuario.direccion" required ></textarea>
                 </div>
-                <button class="btn btn-success" type="submit">Registrarse</button><br>
+                <div class="form-group col-md-12">
+                    <span class="label label-default">Administrador</span>
+                    <label class="radio-inline"><input type="radio" ng-model="usuario.admin" value="1">Si</label>
+                    <label class="radio-inline"><input type="radio" ng-model="usuario.admin" value="0">No</label>
+                </div>
+                <button class="btn btn-success" type="submit">{{boton}}</button><br>
 
             </form>
         </div>

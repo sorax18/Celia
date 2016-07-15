@@ -11,6 +11,7 @@
 angular
   .module('frontApp', [
     'authService',
+    'ui.bootstrap',
     'ngAnimate',
     'ngAria',
     'ngCookies',
@@ -50,6 +51,16 @@ angular
         controller: 'UsuarioCtrl',
         controllerAs: 'usuario'
       })
+      .when('/usuario/crear',{
+        templateUrl: 'views/crearUser.html',
+        controller: 'CrearCtrl',
+        controllerAs: 'crea'
+      })
+      .when('/usuario/actualizar/:id',{
+        templateUrl: 'views/crearUser.html',
+        controller: 'ActualizarCtrl',
+        controllerAs: 'actualizar'
+      })
       .otherwise({
         redirectTo: '/'
       });
@@ -64,6 +75,11 @@ angular
           $location.path('/login');
         }
       });
+  })
+.filter('startFrom',function () {
+    return function (data, start) {
+      return data.slice(start);
+    };
   });
 
 
