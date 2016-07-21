@@ -21,7 +21,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'satellizer',
-    'toastr'
+    'toastr',
+    'ngFileUpload'
   ])
   .config(function ($routeProvider, $authProvider) {
     $authProvider.loginUrl = 'http://localhost:8000/auth_login';
@@ -60,6 +61,66 @@ angular
         templateUrl: 'views/crearUser.html',
         controller: 'ActualizarCtrl',
         controllerAs: 'actualizar'
+      })
+      .when('/categoria',{
+        templateUrl: 'views/categorias.html',
+        controller: 'IndexCategoriaController',
+        controllerAs: 'categoria'
+      })
+      .when('/categoria/crear',{
+        templateUrl: 'views/crearCategoria.html',
+        controller: 'CrearCategoriaController',
+        controllerAs: 'CrearCategoria'
+      })
+      .when('/categoria/actualizar/:id',{
+        templateUrl: 'views/crearCategoria.html',
+        controller: 'ActualizarCategoriaCtrl',
+        controllerAs: 'CategoriaActualizar'
+      })
+      .when('/marca',{
+        templateUrl: 'views/marca.html',
+        controller: 'IndexmarcaController',
+        controllerAs: 'marca'
+      })
+      .when('/marca/crear',{
+        templateUrl: 'views/crearMarca.html',
+        controller: 'CrearmarcaController',
+        controllerAs: 'Crearmarca'
+      })
+      .when('/marca/actualizar/:id',{
+        templateUrl: 'views/crearMarca.html',
+        controller: 'ActualizarmarcaCtrl',
+        controllerAs: 'marcaActualizar'
+      })
+      .when('/producto',{
+        templateUrl: 'views/producto.html',
+        controller: 'IndexProductoController',
+        controllerAs: 'producto'
+      })
+      .when('/producto/crear',{
+        templateUrl: 'views/crearProducto.html',
+        controller: 'CrearProductoController',
+        controllerAs: 'crearProducto'
+      })
+      .when('/producto/actualizar/:id',{
+        templateUrl: 'views/crearProducto.html',
+        controller: 'ActualizarProductoCtrl',
+        controllerAs: 'productoActualizar'
+      })
+      .when('/departamentos',{
+        templateUrl: 'views/departamentos.html',
+        controller: 'IndexDepartamento',
+        controllerAs: 'departamento'
+      })
+      .when('/departamentos/:id',{
+        templateUrl: 'views/departamento.html',
+        controller: 'BuscarDepartamento',
+        controllerAs: 'Bdepartamento'
+      })
+      .when('/departamentos/:ed/:id',{
+        templateUrl: 'views/verProducto.html',
+        controller: 'Productofinal',
+        controllerAs: 'Pfinal'
       })
       .otherwise({
         redirectTo: '/'

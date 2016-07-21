@@ -241,7 +241,36 @@ width: 20px;
   text-decoration: none;
 }
 .mar{
-  margin-right: auto;
-  margin-left: auto;
+padding: 70px 0 0 0 ;
+}
+.th{
+  background-color: #ddc73d;
+  color: white;
+}
+.boto{
+  color: #28b061;
+  margin-right: 10px;
+}
+.thumb {
+    width: 24px;
+    height: 24px;
+    float: none;
+    position: relative;
+    top: 7px;
+}
+.borde{
+  border-right: 1px solid #d1dbd5;
+}
+.depar{
+background-image: url(../images/depa.png);
+  background-size: cover;
+  height: auto;
+  width: 100%;
+  color: white;
+  text-align: center;
+  padding: 120px 0 0 0 ;
+  font-weight: bold;
+  line-height: 1;
+  z-index: -12;
 
 }

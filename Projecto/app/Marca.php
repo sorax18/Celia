@@ -9,5 +9,10 @@ class Marca extends Model
   protected $table = 'marca';
   protected $primaryKey = 'idMarca';
   public $timestamps = false;
-  protected $fillable = ['nombreMarca'];
+  protected $fillable = ['nombreMarca','imagenMarca'];
+
+  public function producto() {
+
+      return $this->hasMany('Api\Producto');
+  }
 }

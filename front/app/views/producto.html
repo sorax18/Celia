@@ -1,0 +1,59 @@
+<div ng-include="menuTemplate.url"></div>
+<div class="col-md-12">
+  <div class="text-right">
+  <a href="#/producto/crear" class="img-circle btn btn-success glyphicon glyphicon-plus "></a>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group col-md-10">
+      <input type="text" class="form-control" placeholder="Buscar..." ng-model="search">
+    </div>
+    <button type="submit" class="btn btn-warning glyphicon glyphicon-search"></button>
+  </div>
+</div>
+<div class="container">
+      <select class="dropdown btn btn-success" ng-model="sortBy">
+        <option value="">Selecciona</option>
+        <option  value="precio">Precio</option>
+        <option value="categoria.nombreMarca">Marca</option>
+        <option value="nombreProducto">Nombre del Producto</option>
+        </select>
+  <div class="row">
+
+
+
+      <!-- Card Projects -->
+      <div ng-repeat="producto in productos | startFrom:(currentPage - 1)* pageSize | limitTo: pageSize | filter:search | orderBy: sortBy" class="col-md-4 col-sm-6 col-xs-push-1 col-xs-10">
+          <div class="card" >
+              <div class="card-image">
+                  <img class="img-responsive" src="http://localhost:8000/img/productos/{{producto.imagenProducto}}">
+
+              </div>
+
+              <div class="card-content">
+                <p>
+                  Nombre del Producto: {{producto.nombreProducto}}
+                  <br>
+                  Precio: ₡{{producto.precio}}
+                  <br>
+                  Cantidad: {{producto.cantidad}}
+                  <br>
+                  Impuesto:  {{producto.impuesto * 100}}%
+                  <br>
+                  Categoria:{{producto.categoria.nombreCategoria}}
+                  <br>
+                  Marca: {{producto.marca.nombreMarca}}
+
+                </p>
+
+              </div>
+
+              <div class="card-action">
+                  <a href="#/producto/actualizar/{{producto.idProducto}}" class="glyphicon glyphicon-pencil"></a>
+                  <a  ng-click="removeproducto(producto.idproducto)"  class="glyphicon glyphicon-remove"></a>
+              </div>
+          </div>
+      </div>
+  </div>
+  <uib-pagination total-items="productos.length" ng-model="currentPage" items-per-page="pageSize"></uib-pagination>﻿
+
+</div>

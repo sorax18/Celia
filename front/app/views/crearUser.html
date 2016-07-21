@@ -2,13 +2,10 @@
     <div class="col-sm-8 col-sm-offset-2">
         <div class="well">
             <h3>{{titulo}} </h3>
-            <form ng-submit="saveUser()">
-              <div class="form-group col-md-12 ">
+            <form ng-submit="uploadPic(picFile)">
+              <div class="form-group col-md-12 " ng-if="actualiza == false">
                 <span class="label label-default">Número de identificación</span>
                   <input type="number" class="form-control" placeholder="ID" ng-model="usuario.idUsuario" required >
-                  <div ng-messages="usuario.idUsuario.$error">
-                      <div ng-message="required">This field is required</div>
-                    </div>
               </div>
                 <div class="form-group col-md-6 ">
                   <span class="label label-default"> Primer Nombre</span>
@@ -70,6 +67,11 @@
                     <span class="label label-default">Administrador</span>
                     <label class="radio-inline"><input type="radio" ng-model="usuario.admin" value="1">Si</label>
                     <label class="radio-inline"><input type="radio" ng-model="usuario.admin" value="0">No</label>
+                </div>
+                <div class="form-group col-md-12 ">
+                  <input type="file" ngf-select ng-model="picFile" name="file"
+                         accept="image/*" ngf-max-size="2MB"
+                         ngf-model-invalid="errorFile">
                 </div>
                 <button class="btn btn-success" type="submit">{{boton}}</button><br>
 

@@ -17,8 +17,8 @@
       <div ng-repeat="users in Usuarios | startFrom:(currentPage - 1)* pageSize | limitTo: pageSize | filter:search" class="col-md-4 col-sm-6 col-xs-push-1 col-xs-10">
           <div class="card" >
               <div class="card-image">
-                  <img class="img-responsive" src="images/user.jpg">
-                  <span class="card-title">{{users.nombre1}} {{users.apellido1}}</span>
+                  <img class="img-responsive" src="http://localhost:8000/img/usuarios/{{users.imagenUsuario}}">
+                  <span class="card-title">{{users.nombre1}} {{users.apellido1}} </span>
               </div>
 
               <div class="card-content">

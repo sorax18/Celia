@@ -1,0 +1,31 @@
+<div ng-include="departamento.menuTemplate.url"></div>
+<div class="depar col-md-12">
+      <h1>Bienvenido, por favor seleccione en el departamento que desea comprar</h1>
+  <div class="container">
+
+    <div class="row">
+        <!-- Card Projects -->
+        <div ng-repeat="categoria in departamentos " class="col-md-3 col-sm-6 col-xs-push-1 col-xs-10">
+          <a href="#/departamentos/{{categoria.idCategoria}}">
+            <div class="card" >
+                <div class="card-image">
+                    <img class="img-responsive" src="http://localhost:8000/img/categoria/{{categoria.imagenCategoria}}">
+
+                </div>
+
+                <div class="card-content">
+                  <p>
+                    {{categoria.nombreCategoria}}
+                  </p>
+
+                </div>
+
+            </div>
+          </a>
+
+        </div>
+    </div>
+
+  </div>
+
+</div>

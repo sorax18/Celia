@@ -1,0 +1,76 @@
+<div class="header" ng-controller="MenuCtrl as menu">
+  <div class="navbar navbar-default navbar-fixed-top " role="navigation">
+    <div class="">
+      <div class="navbar-header">
+
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="navbar-left" href="#/">
+          <img class="navbar-brand navbar-left" alt="" src="images/mobile.png" />
+          <span class="navbar-brand logo">Doña Celia</span>
+        </a>
+
+      </div>
+
+      <div class="collapse navbar-collapse" id="js-navbar-collapse">
+
+        <ul class="nav navbar-nav">
+          <li ng-class="{active : menu.isActive('/')}"><a href="#/">Inicio</a></li>
+          <li ng-class="{active : menu.isActive('/departamentos')}"><a ng-href="#/departamentos">Departamentos</a></li>
+
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+                    <li ><a href="#/">{{menu.user.items[0]}}</a></li>
+                   <li class="dropdown">
+                       <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                          <img src="http://localhost:8000/img/usuarios/{{menu.user.avatar}}" class="profile-image img-circle">
+                           {{menu.user.name}}{{menu.user.idUsuario}}  <b class="caret"></b>
+                       </a>
+                       <ul class="dropdown-menu">
+                           <li>
+                               <div class="navbar-login">
+                                   <div class="row">
+                                       <div class="col-lg-4">
+                                           <p class="text-center">
+                                               <span class="icon-size">
+
+                                                <img class="img-circle" src="http://localhost:8000/img/usuarios/{{menu.user.avatar}}">
+                                               </span>
+                                           </p>
+                                       </div>
+                                       <div class="col-lg-8">
+                                           <p class="text-left"><strong>{{menu.user.name}}</strong></p>
+                                           <p class="text-left small">{{menu.user.email}}</p>
+                                           <p class="text-left">
+                                               <a class="btn btn-primary btn-block btn-sm">Actualizar Datos</a>
+                                           </p>
+                                       </div>
+                                   </div>
+                               </div>
+                           </li>
+                           <li class="divider"></li>
+                           <li>
+                               <div class="navbar-login navbar-login-session">
+                                   <div class="row">
+                                       <div class="col-lg-12">
+                                           <p>
+                                               <a class="btn btn-danger btn-block" ng-click="menu.logout()">Cerrar Sesion</a>
+                                           </p>
+                                       </div>
+                                   </div>
+                               </div>
+                           </li>
+                       </ul>
+                   </li>
+               </ul>
+      </div>
+    </div>
+  </div>
+
+  </div>

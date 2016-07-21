@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('frontApp')
-  .controller('MenuCtrl', function (authUser, $location, $scope, sessionControl) {
+  .controller('MenuCtrl', function (authUser, $location, $scope, sessionControl, CarritoResource) {
     var vm = this;
 
     vm.isLogIn = authUser.isLoggedIn();
@@ -19,8 +19,10 @@ angular.module('frontApp')
     vm.user = {
       email: sessionControl.get('correo'),
       name : sessionControl.get('nombre1') + ' '+ sessionControl.get('apellido1'),
-      avatar: sessionControl.get('nombre1')
-      //aqui va el avatar
+      avatar: sessionControl.get('imagenUsuario'),
+      items: CarritoResource.get({
+        id: sessionControl.get('idUsuario')
+      }),
     };
 
     $scope.$watch(function(){

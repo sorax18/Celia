@@ -1,0 +1,51 @@
+<div ng-include="Bdepartamento.menuTemplate.url"></div>
+<div class=" col-md-12">
+  <div class="col-md-2 borde">
+  <h3>Departamentos</h3>
+  <ul class="list-unstyled ">
+    <li class="list-item " ng-repeat="departamento in departamentos"><a href="#/departamentos/{{departamento.idCategoria}}">{{departamento.nombreCategoria}}<a></li>
+  </ul>
+  </div>
+  <div class="col-md-10 mar">
+    <select class="dropdown btn btn-primary navbar-right" ng-model="sortBy">
+      <option value="">Selecciona</option>
+      <option  value="precio">Precio</option>
+      <option value="categoria.nombreMarca">Marca</option>
+      <option value="nombreProducto">Nombre del Producto</option>
+      </select>
+    <div class="container">
+
+
+      <div class="row ">
+          <!-- Card Projects -->
+
+          <div ng-repeat="producto in productos | orderBy:sortBy" class="col-md-4 col-sm-6 col-xs-push-1 col-xs-10">
+            <a href="#/departamentos/{{producto.categoria.idCategoria}}/{{producto.idProducto}}">
+              <div class="card" >
+                  <div class="card-image">
+                      <img class="img-responsive" src="http://localhost:8000/img/productos/{{producto.imagenProducto}}">
+
+                  </div>
+
+                  <div class="card-content" style="background-color:#28b061">
+                    <p>
+                      Nombre del Producto: {{producto.nombreProducto}}
+                      <br>
+                      Precio: ₡{{producto.precio}}
+                      <br>
+
+                    </p>
+
+                  </div>
+
+              </div>
+            </a>
+
+
+          </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

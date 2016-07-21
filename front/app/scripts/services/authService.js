@@ -20,13 +20,14 @@ angular.module('authService', [])
 
   //autorizacion
   .factory('authUser', function ($auth, sessionControl, toastr, $location){
-    var cache = function (correo, nombre1, apellido1, admin) {
+    var cache = function (correo, nombre1, apellido1, admin,imagenUsuario, idUsuario) {
         sessionControl.set('userIsLogin', true);
         sessionControl.set('correo', correo);
         sessionControl.set('nombre1', nombre1);
         sessionControl.set('apellido1', apellido1);
         sessionControl.set('admin', admin);
-
+        sessionControl.set('imagenUsuario', imagenUsuario);
+        sessionControl.set('idUsuario', idUsuario);
     };
 
     var unCacheSession = function () {
@@ -35,13 +36,14 @@ angular.module('authService', [])
       sessionControl.unset('nombre1');
       sessionControl.unset('apellido1');
       sessionControl.unset('admin');
+      sessionControl.unset('imagenUsuario');
     };
 
     var login = function (loginForm) {
            $auth.login(loginForm).then(
                function (response) {
                    if(typeof response.data.user !== 'undefined'){
-                     cache(response.data.user.correo, response.data.user.nombre1, response.data.user.apellido1, response.data.user.administrador);
+                     cache(response.data.user.correo, response.data.user.nombre1, response.data.user.apellido1, response.data.user.administrador, response.data.user.imagenUsuario,response.data.user.idUsuario);
                       if (response.data.user.administrador === 1) {
                         $location.path('/usuario');
                         toastr.success('Sesión iniciada con éxito', 'Mensaje');

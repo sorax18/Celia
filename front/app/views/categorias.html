@@ -1,0 +1,39 @@
+<div ng-include="menuTemplate.url"></div>
+<div class="col-md-12">
+  <div class="text-right">
+  <a href="#/categoria/crear" class="img-circle btn btn-success glyphicon glyphicon-plus "></a>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group col-md-10">
+      <input type="text" class="form-control" placeholder="Buscar..." ng-model="search">
+    </div>
+    <button type="submit" class="btn btn-warning glyphicon glyphicon-search"></button>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+      <!-- Card Projects -->
+      <div ng-repeat="categoria in Categorias | startFrom:(currentPage - 1)* pageSize | limitTo: pageSize | filter:search" class="col-md-4 col-sm-6 col-xs-push-1 col-xs-10">
+          <div class="card" >
+              <div class="card-image">
+                  <img class="img-responsive" src="http://localhost:8000/img/categoria/{{categoria.imagenCategoria}}">
+
+              </div>
+
+              <div class="card-content">
+                <p>
+                  {{categoria.nombreCategoria}}
+                </p>
+
+              </div>
+
+              <div class="card-action">
+                  <a href="#/categoria/actualizar/{{categoria.idCategoria}}" class="glyphicon glyphicon-pencil"></a>
+                  <a  ng-click="removeCategoria(categoria.idCategoria)"  class="glyphicon glyphicon-remove"></a>
+              </div>
+          </div>
+      </div>
+  </div>
+  <uib-pagination total-items="Categorias.length" ng-model="currentPage" items-per-page="pageSize"></uib-pagination>﻿
+
+</div>

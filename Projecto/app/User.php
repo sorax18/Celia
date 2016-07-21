@@ -10,7 +10,7 @@ class User extends Authenticatable
   protected $primaryKey = 'idUsuario';
   public $timestamps = false;
     protected $fillable = [
-        'idUsuario','nombre1', 'nombre2', 'apellido1','apellido2','correo','password','direccion','telefono','zip','administrador'
+        'idUsuario','nombre1', 'nombre2', 'apellido1','apellido2','correo','password','direccion','telefono','zip','administrador', 'imagenUsuario'
     ];
 
     /**
@@ -18,6 +18,10 @@ class User extends Authenticatable
      *
      * @var array
      */
+     public function factura(){
+       return $this->hasMany('Api\Factura', 'idUsuario', 'idUsuario');
+     }
+
     protected $hidden = [
         'password', 'remember_token',
     ];

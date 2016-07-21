@@ -1,7 +1,7 @@
 <?php
 
 namespace Api\Http\Controllers;
-
+use Image;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
 use Api\Http\Requests;
@@ -39,6 +39,29 @@ class usuarioController extends Controller
     {
       $token = null;
       if($request['administrador']==1){
+        if ($request->file('file')) {
+          $imagen = $request->file('file');
+          $nombre = $request->input('idUsuario'). '.' .'jpg';//el nombre de la imagen es el numeron de carne con la extensio jpg
+          $direccion = public_path('img/usuarios' . $nombre);
+          if(Image::make($imagen->getRealPath())->resize('550','550')->save($direccion)){//si se crea la imagen 100*100px entonces dar un mensaje
+                echo "guardada";
+              }
+              User::create([
+                 'idUsuario'=>$request['idUsuario'],
+                 'password'=>bcrypt($request['password']),
+                 'nombre1'=>$request['nombre1'],
+                 'nombre2'=>$request['nombre2'],
+                 'apellido1'=>$request['apellido1'],
+                 'apellido2'=>$request['apellido2'],
+                 'telefono'=>$request['telefono'],
+                 'direccion'=>$request['direccion'],
+                 'correo'=>$request['correo'],
+                 'zip'=>$request['zip'],
+                 'administrador'=>$request['administrador'],
+                 'imagenUsuario'=>$request['idUsuario'].'.jpg',
+                 ]);
+                  return response()->json(["Mensaje"=>"Usuario creado con Exito"]);
+        }
         User::create([
            'idUsuario'=>$request['idUsuario'],
            'password'=>bcrypt($request['password']),
@@ -54,6 +77,28 @@ class usuarioController extends Controller
            ]);
          return response()->json(["Mensaje"=>"Usuario creado con Exito"]);
       }
+      if ($request->file('file')) {
+        $imagen = $request->file('file');
+        $nombre = $request->input('idUsuario'). '.' .'jpg';//el nombre de la imagen es el numeron de carne con la extensio jpg
+        $direccion = public_path('img/usuarios' . $nombre);
+        if(Image::make($imagen->getRealPath())->resize('550','550')->save($direccion)){//si se crea la imagen 100*100px entonces dar un mensaje
+              echo "guardada";
+            }
+          User::create([
+           'idUsuario'=>$request['idUsuario'],
+           'password'=>bcrypt($request['password']),
+           'nombre1'=>$request['nombre1'],
+           'nombre2'=>$request['nombre2'],
+           'apellido1'=>$request['apellido1'],
+           'apellido2'=>$request['apellido2'],
+           'telefono'=>$request['telefono'],
+           'direccion'=>$request['direccion'],
+           'correo'=>$request['correo'],
+           'zip'=>$request['zip'],
+           'imagenUsuario'=>$request['idUsuario'].'.jpg',
+           ]);
+         return response()->json(["Mensaje"=>"Usuario creado con Exito"]);
+      }
       User::create([
          'idUsuario'=>$request['idUsuario'],
          'password'=>bcrypt($request['password']),
@@ -65,7 +110,7 @@ class usuarioController extends Controller
          'direccion'=>$request['direccion'],
          'correo'=>$request['correo'],
          'zip'=>$request['zip'],
-         ]);
+       ]);
        return response()->json(["Mensaje"=>"Usuario creado con Exito"]);
     }
 
@@ -100,6 +145,14 @@ class usuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
+      if ($request->file('file')) {
+        $imagen = $request->file('file');
+        $nombre = $request->input('idUsuario'). '.' .'jpg';//el nombre de la imagen es el numeron de carne con la extensio jpg
+        $direccion = public_path('img/usuarios' . $nombre);
+        if(Image::make($imagen->getRealPath())->resize('550','550')->save($direccion)){//si se crea la imagen 100*100px entonces dar un mensaje
+              echo "guardada";
+            }
+      }
         $token = null;
        $this->user->fill($request->all());
        $this->user->save();

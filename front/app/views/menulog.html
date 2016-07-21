@@ -21,15 +21,15 @@
 
         <ul class="nav navbar-nav">
           <li ng-class="{active : menu.isActive('/')}"><a href="#/">Inicio</a></li>
-          <li ng-class="{active : menu.isActive('/about')}"><a ng-href="#/about">sobre nosotros</a></li>
-          <li ng-class="{active : menu.isActive('/login')}"><a ng-href="#/login">Iniciar sesion</a></li>
+          <li ng-class="{active : menu.isActive('/departamentos')}"><a ng-href="#/departamentos">Departamentos</a></li>
+
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
                    <li class="dropdown">
                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                      <!--     <img ng-src="{{menu.user.avatar}}" class="profile-image img-circle">-->
-                           {{menu.user.name}} <b class="caret"></b>
+                          <img src="http://localhost:8000/img/usuarios/{{menu.user.avatar}}" class="profile-image img-circle">
+                           {{menu.user.name}}{{menu.user.idUsuario}} <b class="caret"></b>
                        </a>
                        <ul class="dropdown-menu">
                            <li>
@@ -38,7 +38,8 @@
                                        <div class="col-lg-4">
                                            <p class="text-center">
                                                <span class="icon-size">
-                                                <!-- <img class="img-circle" ng-src="{{menu.user.avatar}}">-->
+
+                                                <img class="img-circle" src="http://localhost:8000/img/usuarios/{{menu.user.avatar}}">
                                                </span>
                                            </p>
                                        </div>
@@ -70,13 +71,8 @@
       </div>
     </div>
   </div>
-  <div class="fondo"> Bievenido a la mejor tienda libre de gluten
-    <form class="navbar-form" role="search">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
-      </div>
-      <button type="submit" class="btn btn-success glyphicon glyphicon-search"></button>
-    </form>
+  
+  <div class="fondo"> Bienvenido a la mejor tienda libre de gluten
   </div>
 
 

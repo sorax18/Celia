@@ -18,4 +18,9 @@ Route::get('/', function () {
 Route::group(['middleware' =>'cors'], function(){
 Route::post('/auth_login', 'ApiAuth@UserAuth');
 Route::resource('registro', 'usuarioController');
+Route::resource('categoria', 'categoriaController');
+Route::resource('marca', 'marcaController');
+Route::resource('producto', 'productoController');
+Route::resource('departamento', 'departamentoController');
+Route::resource('carrito', 'carritoController');
 });

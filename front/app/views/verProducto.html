@@ -1,0 +1,38 @@
+<div ng-include="Pfinal.menuTemplate.url"></div>
+
+    <div ng-repeat="producto in productos">
+      <div class="col-md-12 mar">
+        <div class="col-md-4">
+          <img class="img-responsive" src="http://localhost:8000/img/productos/{{producto.imagenProducto}}" alt="" />
+        </div>
+        <div class="col-md-4">
+      <h3>{{producto.nombreProducto}}</h3>
+      <h3>₡{{producto.precio}}</h3>
+      <p>
+      {{producto.descripcion}}
+      </p>
+    </div>
+    <div class="col-md-4">
+      <div class="well col-md-10">
+        <div class="col-md-6">
+          <select class=" dropdown btn btn-default" ng-model="factura.cantidad" ng-init="factura.cantidad = '1'">
+            <option  value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+
+          </select>
+          {{cantidad}}
+        </div>
+
+
+            <button type="button" class="btn btn-danger" ng-click="AgregarCarro(producto.idProducto)"><span class="glyphicon glyphicon-shopping-cart"></span>Agregar al carrito</button>
+
+      </div>
+
+    </div>
+  </div>
+</div>
